@@ -1,0 +1,74 @@
+-- Via la table department du schema humanresources, trouvez le nombre de départements présents 
+-- dans l'entreprise
+SELECT departmentid
+FROM humanresources.department;
+
+-- Via cette même table determinez le nombre de groupe de départements différents sont présents
+SELECT groupname
+FROM humanresources.department;
+EXO - 1 
+
+-- -- Affichez un tableau à une colonne avec les noms de categories de produits 
+-- présents dans la table productcategory du 
+-- schema production
+SELECT name
+FROM production.productcategory;
+
+-- Affichez un tableau avec les différentes couleurs proposés par la sociétés pour ses produits, 
+-- via la table product du schema production
+SELECT DISTINCT color
+FROM production.product;
+
+-- Affichez les combinaison uniques de d'ID de sous-catégories avec les couleurs de produits, 
+-- via la table product du schema production
+SELECT DISTINCT productid,color
+FROM production.product;
+
+
+EXO 2 
+-- On souhaite prévenir les clients d'une boutique spécifique qu'elle va changer d'adresse.
+-- Via la table Sales.Customer, isolez les clients reliés au store id 990
+SELECT *
+FROM Sales.Customer
+WHERE storeid = 990;
+
+-- On souhaite vérifier les informations d'un produit spécifique.
+-- Via la table Production.Product, isolez les informations du produit ayant pour nom 'Adjustable Race'
+SELECT *
+FROM Production.Product
+WHERE name = 'Adjustable Race';
+
+-- On souhaite  trouver les produits dont le prix d'achat est égal au prix de vente.
+-- Écrivez une requête SQL pour sélectionner les produits de la table production.product 
+-- dont le standardcost est égal au listprice
+SELECT productid, name
+FROM Production.Product
+WHERE standardcost = listprice;
+
+-- On souhaite vérifier que le stock de sécurité est bien toujours supérieur au stock limite de commande.
+-- Écrivez une requête SQL pour sélectionner les produits de la table production.product 
+-- dont le safetystocklevel est inférieur au reorderpoint
+SELECT *
+FROM Production.Product
+WHERE safetystocklevel < reorderpoint;
+
+-- on souhaite isoler les zones de ventes en dehors des USA
+-- Écrivez une requête SQL pour sélectionner les zones de vente de la 
+-- table Sales.Salesterritory dont le countryregioncode n'est pas égal à 'US'
+SELECT *
+FROM Sales.Salesterritory
+WHERE countryregioncode <> 'US';
+
+-- On souhaite vérifier que tous les produits ont bien un temps de manufacture indiqué
+-- Écrivez une requête SQL pour sélectionner les produits de la 
+-- table production.product dont le daystomanufacture est vide
+SELECT *
+FROM production.product
+WHERE daystomanufacture IS NOT NULL;
+
+-- On souhaite voir si le poids des produits est parfois indiqué.
+-- Écrivez une requête SQL pour sélectionner les  produits de la 
+-- table production.product, dont le weight n'est pas vide
+SELECT *
+FROM production.product
+WHERE weight IS NOT NULL;

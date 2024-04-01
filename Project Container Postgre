@@ -1,0 +1,3 @@
+- Postgre alpine linux conteneur  et orchestré sur docker swarm 
+- Postgre orchestré par Kubernetes replication  
+- postgre sous ubuntu
